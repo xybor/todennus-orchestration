@@ -1,0 +1,9 @@
+[submodule "todennus-backend"]
+	path = todennus-backend
+	url = https://github.com/xybor/todennus-backend
+[submodule "todennus-idp"]
+	path = todennus-idp
+	url = https://github.com/xybor/todennus-idp
+[submodule "todennus-migration"]
+	path = todennus-migration
+	url = https://github.com/xybor/todennus-migration
