@@ -8,7 +8,7 @@ docker-build-idp:
 	cd todennus-idp && make docker-build
 
 docker-build-migration:
-	cd todennus-migration && make docker-build
+	docker build -t xybor/todennus-migration -f ./todennus-migration/workspace.Dockerfile .
 
 quick-start:
 	docker compose --env-file ./todennus-orchestration/.env -f ./todennus-orchestration/quick-start.yaml up -d

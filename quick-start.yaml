@@ -55,7 +55,7 @@ services:
       - POSTGRES_PASSWORD
       - POSTGRES_LOGLEVEL=1
       - POSTGRES_HOST=postgresql
-      - POSTGRES_PORT=5432
+      - POSTGRES_PORT=5433
       - POSTGRES_TIMEZONE=UTC
       - POSTGRES_SSLMODE=disable
       - POSTGRES_RETRY_ATTEMPTS=3
@@ -135,11 +135,11 @@ services:
 
 volumes:
   postgresql:
-    name: postgresql
+    name: todennus_postgresql
   pgadmin:
-    name: pgadmin
+    name: todennus_pgadmin
   redis:
-    name: redis
+    name: todennus_redis
 
 networks:
   PG_ADMIN:
