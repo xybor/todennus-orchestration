@@ -5,9 +5,9 @@ services:
     command: -p 5433
     restart: always
     environment:
-      - POSTGRES_DB
-      - POSTGRES_USER
-      - POSTGRES_PASSWORD
+      - POSTGRES_DB=todennus
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     volumes:
       - postgresql:/var/lib/postgresql/data
     expose:
@@ -50,14 +50,8 @@ services:
     image: xybor/todennus-migration:latest
     command: "--postgres"
     environment:
-      - POSTGRES_DB
-      - POSTGRES_USER
-      - POSTGRES_PASSWORD
+      - POSTGRES_DSN=postgresql://postgres:postgres@postgresql:5433/todennus?sslmode=disable&connect_timeout=2
       - POSTGRES_LOGLEVEL=1
-      - POSTGRES_HOST=postgresql
-      - POSTGRES_PORT=5433
-      - POSTGRES_TIMEZONE=UTC
-      - POSTGRES_SSLMODE=disable
       - POSTGRES_RETRY_ATTEMPTS=3
       - POSTGRES_RETRY_INTERVAL=5
     networks:
@@ -77,19 +71,13 @@ services:
       - SERVER_NODEID=0
       - SERVER_LOGLEVEL
       - SERVER_REQUEST_TIMEOUT
-
-      - POSTGRES_DB
-      - POSTGRES_USER
-      - POSTGRES_PASSWORD
+      
+      - POSTGRES_DSN=postgresql://postgres:postgres@postgresql:5433/todennus?sslmode=disable&connect_timeout=2
       - POSTGRES_LOGLEVEL=1
-      - POSTGRES_HOST=postgresql
-      - POSTGRES_PORT=5433
-      - POSTGRES_TIMEZONE=UTC
-      - POSTGRES_SSLMODE=disable
       - POSTGRES_RETRY_ATTEMPTS=3
       - POSTGRES_RETRY_INTERVAL=5
 
-      - REDIS_DB
+      - REDIS_DB=0
       - REDIS_USERNAME=
       - REDIS_PASSWORD=
       - REDIS_ADDR=redis:6380
