@@ -75,7 +75,8 @@ services:
       - SERVER_HOST=0.0.0.0
       - SERVER_PORT=8080
       - SERVER_NODEID=0
-      - SERVER_LOGLEVEL=0
+      - SERVER_LOGLEVEL
+      - SERVER_REQUEST_TIMEOUT
 
       - POSTGRES_DB
       - POSTGRES_USER
