@@ -11,7 +11,7 @@ docker-build-migration:
 	docker build -t xybor/todennus-migration -f ./todennus-migration/workspace.Dockerfile .
 
 quick-start:
-	docker compose --env-file ./todennus-orchestration/.env -f ./todennus-orchestration/quick-start.yaml up -d
+	cd todennus-orchestration && make quick-start
 
 quick-start-down:
-	docker compose -f ./todennus-orchestration/quick-start.yaml down
+	cd todennus-orchestration && make quick-start-down
