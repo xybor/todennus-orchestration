@@ -62,6 +62,7 @@ services:
   todennus-backend:
     container_name: todennus-backend
     image: xybor/todennus-backend:latest
+    command: rest
     restart: always
     ports:
       - 8080:8080
@@ -71,7 +72,7 @@ services:
       - SERVER_NODEID=0
       - SERVER_LOGLEVEL
       - SERVER_REQUEST_TIMEOUT
-      
+
       - POSTGRES_DSN=postgresql://postgres:postgres@postgresql:5433/todennus?sslmode=disable&connect_timeout=2
       - POSTGRES_LOGLEVEL=1
       - POSTGRES_RETRY_ATTEMPTS=3
@@ -123,6 +124,14 @@ services:
       - TODENNUS_IDP_SECRET=${OAUTH2_IDP_SECRET}
     networks:
       - TODENNUS
+
+  todennus-swagger:
+    container_name: todennus-swagger
+    image: xybor/todennus-backend:latest
+    command: swagger
+    restart: always
+    ports:
+      - 8084:8083
 
 volumes:
   postgresql:
